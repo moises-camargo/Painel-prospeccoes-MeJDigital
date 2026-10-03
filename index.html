@@ -586,6 +586,38 @@ body > footer{width:100%;flex-shrink:0;margin-top:0;margin-bottom:0;padding-top:
 #dica{margin-top:18px;margin-bottom:0}
 @media(max-width:700px){.board .colbody{max-height:75vh;max-height:75dvh}}
 </style>
+<style id="mj-biblioteca-style">
+[hidden]{display:none!important}
+#mjBiblioteca{padding:22px} .mj-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.mj-between{justify-content:space-between}
+.mj-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:24px;margin-top:24px}.mj-layout>aside,.mj-layout>div{min-width:0}.mj-nicho{display:flex;justify-content:space-between;width:100%;text-align:left;margin-top:8px;white-space:normal;gap:12px}.mj-nicho span{flex:none}
+#mjBiblioteca input,#mjBiblioteca select,.mj-dialog input,.mj-dialog select,.mj-dialog textarea{box-sizing:border-box;width:100%;font:inherit;font-size:14px;border:1.5px solid var(--linha,#DCE1EB);border-radius:10px;padding:11px 13px;background:var(--surface,#fff);color:var(--texto,#303747)}
+#mjBiblioteca label.flbl{margin-bottom:6px}#mjBiblioteca h2{line-height:1.25}#mjBiblioteca>.mj-row:first-child{align-items:flex-start}#mjBiblioteca>.mj-row:first-child>.mj-row{padding-top:4px}
+#mjBiblioteca .btn:disabled,.mj-dialog .btn:disabled{opacity:.5;cursor:not-allowed;box-shadow:none!important}#mjBiblioteca .btn:disabled:hover{background:var(--surface);border-color:var(--linha-f);color:var(--gray)}
+#mjBiblioteca #mjNichoActions .btn{white-space:nowrap}
+.mj-script{border:1px solid var(--line,#dde0e8);border-radius:12px;padding:18px;margin-top:14px;background:var(--surface,#fff)}
+.mj-script h3{font-size:16px;margin:0}.mj-script-text{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7;margin:16px 0}
+.mj-tag{font-size:11px;padding:5px 9px;background:#e9f2ff;color:#17578d;border-radius:6px}.mj-danger{color:#ad3540!important}
+.mj-empty{padding:32px 14px;border:1px dashed var(--line,#dde0e8);border-radius:12px;margin-top:14px;color:var(--gray)}
+#mjArquivados{margin-top:20px}#mjArquivados summary{cursor:pointer;font-size:12px}#mjArchiveList .btn{display:block;margin-top:10px}
+#mjSearchBox{border-top:1px solid var(--line,#dde0e8);margin-top:24px;padding-top:20px}#mjSearchScripts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.mj-dialog{position:fixed;inset:0;margin:auto;width:min(560px,95vw);height:fit-content;max-height:90vh;max-height:90dvh;overflow:auto;border:1px solid var(--line,#dde0e8);border-radius:16px;padding:24px;background:var(--surface,#fff);color:var(--ink)}
+.mj-dialog::backdrop{background:#0a13275e}.mj-dialog .flbl{display:block;margin:14px 0 6px}.mj-dialog input,.mj-dialog select,.mj-dialog textarea{width:100%}.mj-dialog textarea{min-height:170px;line-height:1.6;resize:vertical}
+#mjEditError{color:#ad3540;margin-top:14px;font-size:13px}#mjStatus{margin:0;font-size:13px;line-height:1.6;flex:1;min-width:220px;overflow-wrap:anywhere}#mjBiblioteca .mj-status-row{border-top:1px solid var(--linha,#DCE1EB);padding-top:16px;margin-top:22px;align-items:flex-start}#mjToast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#142338;color:white;padding:14px 22px;border-radius:12px;z-index:9999;max-width:90vw}
+@media(max-width:850px){.mj-layout{grid-template-columns:1fr}#mjSearchScripts{grid-template-columns:1fr}#mjBiblioteca{padding:18px}.mj-dialog{padding:20px}.mj-dialog .grid2{grid-template-columns:1fr}}@media(max-width:480px){#mjBiblioteca>.mj-row:first-child>.mj-row{width:100%}#mjBiblioteca>.mj-row:first-child>.mj-row .btn{flex:1}#mjStatus{min-width:0;flex-basis:100%}}
+</style>
+<style id="mj-search-progress-style">
+.search-progress{margin:14px 0 18px;padding:14px 16px;border:1px solid var(--linha,#DCE1EB);border-radius:12px;background:var(--surface,#fff)}
+.search-progress-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px;font-size:12px;color:var(--gray,#667085)}
+.search-progress-head strong{color:var(--tinta,#111827);font-weight:600}
+.search-progress-track{height:14px;background:var(--azul-c,#E7F0FB);border-radius:20px;overflow:hidden;position:relative}
+.search-progress-fill{height:100%;width:0;background:var(--azul,#005AB5);border-radius:20px;transition:width .45s ease}
+.search-progress-sweep{position:absolute;inset:0 auto 0 0;width:28%;border-radius:20px;background:linear-gradient(90deg,transparent,rgba(0,90,181,.35),transparent);animation:mj-search-sweep 1.8s ease-in-out infinite;display:none}
+.search-progress[data-state="running"] .search-progress-sweep{display:block}
+.search-progress[data-state="done"] .search-progress-fill{background:#168354}
+.search-progress-note{font-size:11px;color:var(--gray,#667085);margin-top:8px;line-height:1.5}
+@keyframes mj-search-sweep{from{transform:translateX(-100%)}to{transform:translateX(460%)}}
+@media(prefers-reduced-motion:reduce){.search-progress-sweep{animation:none!important;left:36%}.search-progress-fill{transition:none}}
+</style>
 </head>
 <body class="deslogado">
 
@@ -672,6 +704,7 @@ body > footer{width:100%;flex-shrink:0;margin-top:0;margin-bottom:0;padding-top:
 <nav class="tools" aria-label="Abas do painel">
   <button class="btn solid" id="tabContatos" aria-selected="true">Meus leads</button>
   <button class="btn" id="tabPesquisa" aria-selected="false">Buscar leads</button>
+  <button class="btn" id="tabScripts" aria-selected="false">Scripts e nichos</button>
 </nav>
 <section id="pesquisaLeads" class="card" hidden>
   <h2>Encontre seus próximos clientes</h2>
@@ -687,8 +720,17 @@ body > footer{width:100%;flex-shrink:0;margin-top:0;margin-bottom:0;padding-top:
     <button class="btn" id="pParar" type="button" hidden>Parar busca</button>
   </form>
   <p id="pStatus" role="status" aria-live="polite" style="margin-top:16px">Preencha os campos para começar.</p>
-  <progress id="pProgresso" value="0" max="1" hidden style="width:100%"></progress>
+  <div id="pProgresso" class="search-progress" data-state="idle" hidden>
+    <div class="search-progress-head"><strong id="pProgressoLabel">Preparando busca</strong><span id="pProgressoTempo">Tempo: 00:00</span><span id="pProgressoMeta">0% da meta</span></div>
+    <div id="pProgressoTrack" class="search-progress-track" role="progressbar" aria-label="Progresso da busca" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="pProgressoFill" class="search-progress-fill"></div><div class="search-progress-sweep" aria-hidden="true"></div></div>
+    <p class="search-progress-note">A porcentagem acompanha os leads encontrados. O tempo de consulta de cada site pode variar.</p>
+  </div>
   <div id="pResultados" style="margin-top:14px"></div>
+</section>
+<section id="mjBiblioteca" class="card" hidden>
+  <div class="mj-row mj-between"><div><h2>Scripts e nichos</h2><p class="shint">Sua biblioteca de mensagens, organizada por negócio e salva na nuvem.</p></div><div class="mj-row"><button class="btn" type="button" id="mjNovoNicho" disabled>+ Novo nicho</button><button class="btn solid" type="button" id="mjNovoScript" disabled>+ Novo script</button></div></div>
+  <div class="mj-layout"><aside><label class="flbl" for="mjFiltro">Encontrar nicho</label><input type="text" id="mjFiltro" placeholder="Digite o nome do nicho" maxlength="120"><div id="mjNichoList"></div><p class="shint" style="margin-top:16px">Todos podem cadastrar nichos. Somente administradores podem editar, excluir e restaurar nichos.</p><details id="mjArquivados" hidden><summary>Nichos excluídos</summary><div id="mjArchiveList"></div></details></aside><div><div class="mj-row mj-between"><div><h3 id="mjNichoTitle">Sua biblioteca</h3><p class="shint" id="mjScriptCount"></p></div><div class="mj-row" id="mjNichoActions" hidden><button class="btn" type="button" id="mjEditNicho">Editar nicho</button><button class="btn mj-danger" type="button" id="mjDeleteNicho">Excluir nicho</button></div></div><div id="mjScriptList"></div></div></div>
+  <div class="mj-row mj-between mj-status-row"><p id="mjStatus" role="status" aria-live="polite">Carregando biblioteca…</p><button class="btn" type="button" id="mjRefresh">Atualizar biblioteca</button></div>
 </section>
 <div id="areaContatos">
 
@@ -814,7 +856,10 @@ body > footer{width:100%;flex-shrink:0;margin-top:0;margin-bottom:0;padding-top:
   <b>M&amp;J DIGITAL</b>
 </footer>
 
-<script>
+<dialog id="mjEditor" class="mj-dialog"><form id="mjEditForm"><div class="mj-row mj-between"><h2 id="mjEditTitle"></h2><button class="btn" type="button" id="mjEditClose" aria-label="Fechar formulário de script">×</button></div><div id="mjEditFields"></div><p id="mjEditError" role="alert"></p><div class="mj-row" style="justify-content:flex-end;margin-top:20px"><button class="btn" type="button" id="mjEditCancel">Cancelar</button><button class="btn solid" id="mjEditSave" type="submit">Salvar</button></div></form></dialog>
+<dialog id="mjCopyDialog" class="mj-dialog"><h2>Copiar script</h2><p class="shint">Selecione o texto e pressione Ctrl+C.</p><textarea id="mjCopyText" readonly aria-label="Script para copiar"></textarea><button class="btn" type="button" id="mjCopyClose">Fechar</button></dialog>
+<div id="mjToast" role="status" hidden></div>
+<script id="sp-app">
 (function(){
   "use strict";
   var $ = function(id){ return document.getElementById(id); };
@@ -1602,24 +1647,28 @@ body > footer{width:100%;flex-shrink:0;margin-top:0;margin-bottom:0;padding-top:
     if (ORDER.indexOf(deVal) >= 0) de.value = deVal;
   }
   // Pesquisa autenticada: as chaves de pesquisa e ScrapeGraph ficam no servidor.
-  var PESQUISA_API = 'https://tools-prospeccao-busca.xr0mn1.easypanel.host/api/prospeccao'; // Defina URL absoluta somente se o backend usar outro domínio.
+  var PESQUISA_API = (['127.0.0.1','localhost'].indexOf(location.hostname)>=0 && location.port==='8766') ? '/api/prospeccao' : 'https://leads-api.mejdigital.com.br/api/prospeccao'; // Defina URL absoluta somente se o backend usar outro domínio.
   var pesquisaJob = null, pesquisaTimer = null, pesquisaUser = null;
   function abaPesquisa(on){
-    $('pesquisaLeads').hidden = !on; $('areaContatos').hidden = on;
-    ['tabPesquisa','tabContatos'].forEach(function(id){
-      var selected = id === (on ? 'tabPesquisa' : 'tabContatos');
-      $(id).classList.toggle('solid',selected); $(id).setAttribute('aria-selected',String(selected));
-    });
+    mjTab(on ? 'search' : 'leads');
   }
   $('tabPesquisa').onclick=function(){ abaPesquisa(true); };
   $('tabContatos').onclick=function(){ abaPesquisa(false); };
   async function pesquisaRequest(path, method, body){
+    if(location.protocol==='file:'){
+      throw new Error('Para buscar nesta máquina, abra abrir-painel.cmd e use http://127.0.0.1:8766/painel-supabase.html. O servidor de busca não aceita chamadas diretas de arquivos locais.');
+    }
     var session = await sb.auth.getSession();
     if (!session.data.session) throw new Error('Entre no painel novamente.');
-    var response = await fetch(PESQUISA_API+path, {
+    var response;
+    try { response = await fetch(PESQUISA_API+path, {
       method:method || 'GET', headers:{'Content-Type':'application/json','Authorization':'Bearer '+session.data.session.access_token},
       body:body ? JSON.stringify(body) : undefined, signal:AbortSignal.timeout(20000)
     });
+    } catch(networkError){
+      if(networkError.name==='TimeoutError'||networkError.name==='AbortError') throw new Error('O serviço de busca demorou para responder. Tente novamente.');
+      throw new Error('Não foi possível conectar ao servidor de busca. No teste local, mantenha abrir-painel.cmd em execução e abra o endereço http://127.0.0.1:8766/painel-supabase.html.');
+    }
     var result; try { result = await response.json(); } catch(e){ throw new Error('O serviço de busca ainda não está disponível neste endereço.'); }
     if(!response.ok) throw new Error(result.error || 'Não foi possível consultar a busca.');
     return result;
@@ -1647,27 +1696,50 @@ body > footer{width:100%;flex-shrink:0;margin-top:0;margin-bottom:0;padding-top:
     if(inserted){ db.hist[h]=(db.hist[h]||0)+inserted; save(); render(); }
     return inserted;
   }
+  var pesquisaInicio=0,pesquisaRelogio=null;
+  function pesquisaTempoAtualizar(){
+    var seconds=Math.max(0,Math.floor((Date.now()-pesquisaInicio)/1000)),minutes=Math.floor(seconds/60),rest=seconds%60;
+    $('pProgressoTempo').textContent='Tempo: '+String(minutes).padStart(2,'0')+':'+String(rest).padStart(2,'0');
+  }
+  function pesquisaTempoParar(){clearInterval(pesquisaRelogio);pesquisaRelogio=null;}
+  function pesquisaTempoIniciar(){pesquisaTempoParar();pesquisaInicio=Date.now();pesquisaTempoAtualizar();pesquisaRelogio=setInterval(pesquisaTempoAtualizar,1000);}
+  function pesquisaProgresso(found,target,status){
+    found=Math.max(0,Number(found)||0);target=Math.max(1,Number(target)||1);
+    var percent=Math.min(100,Math.floor(found/target*100));
+    var state=status==='done'?'done':status==='running'?'running':status==='error'||status==='failed'?'error':'stopped';
+    $('pProgresso').hidden=false;$('pProgresso').dataset.state=state;
+    if(state!=='running')pesquisaTempoParar();
+    $('pProgressoLabel').textContent=(state==='done'?'Busca concluída':state==='running'?'Busca em andamento':state==='error'?'Busca com erro':'Busca interrompida')+' · '+found+'/'+target+' leads';
+    $('pProgressoMeta').textContent=state==='done'?'Concluída':percent+'% da meta';
+    $('pProgressoFill').style.width=(state==='done'?100:percent)+'%';
+    $('pProgressoTrack').setAttribute('aria-valuenow',String(state==='done'?100:percent));
+    $('pProgressoTrack').setAttribute('aria-valuetext',$('pProgressoLabel').textContent+' · '+$('pProgressoMeta').textContent);
+  }
+  function pesquisaProgressoErro(){pesquisaTempoParar();if(!$('pProgresso').hidden){$('pProgresso').dataset.state='error';$('pProgressoLabel').textContent='Conexão interrompida · tente acompanhar novamente';}}
   function pesquisaIdle(){ $('pBuscar').disabled=false; $('pParar').hidden=true; }
   async function acompanharPesquisa(){
     if(!pesquisaJob || !usuario || usuario.id!==pesquisaUser){ pesquisaIdle(); return; }
     try{
-      var job=await pesquisaRequest('/jobs/'+pesquisaJob);
+      var activeJob=pesquisaJob,activeUser=pesquisaUser;
+      var job=await pesquisaRequest('/jobs/'+activeJob);
+      if(pesquisaJob!==activeJob || pesquisaUser!==activeUser || !usuario || usuario.id!==activeUser)return;
       importarPesquisa(job.leads||[]);
       $('pStatus').textContent=job.message;
-      $('pProgresso').hidden=false; $('pProgresso').max=Math.max(1,job.target); $('pProgresso').value=(job.leads||[]).length;
+      pesquisaProgresso((job.leads||[]).length,job.target,job.status);
       $('pResultados').replaceChildren();
       (job.leads||[]).forEach(function(l){var row=document.createElement('div');row.className='pend';row.textContent=l.nome+' — '+(l.cidade||'')+' · '+(l.telefone||l.email||'Contato não encontrado');$('pResultados').appendChild(row);});
-      if(job.status==='running'){ pesquisaTimer=setTimeout(acompanharPesquisa,2500); }
-      else { pesquisaIdle(); if(job.status==='done' && job.leads.length){$('busca').value='';$('fEtapa').value='';$('fCanal').value='';setVista('quadro');abaPesquisa(false);} }
-    }catch(e){ $('pStatus').textContent=e.message+' Abra Buscar leads para acompanhar ou tente novamente.'; pesquisaIdle(); }
+      if(job.status==='running'){ clearTimeout(pesquisaTimer); pesquisaTimer=setTimeout(acompanharPesquisa,2500); }
+      else { clearTimeout(pesquisaTimer); pesquisaTimer=null; pesquisaJob=null; pesquisaUser=null; pesquisaIdle(); }
+    }catch(e){ $('pStatus').textContent=e.message+' Abra Buscar leads para acompanhar ou tente novamente.'; pesquisaProgressoErro(); pesquisaIdle(); }
   }
   $('formPesquisa').onsubmit=async function(e){
     e.preventDefault(); if(!usuario) return;
     $('pBuscar').disabled=true; $('pStatus').textContent='Iniciando pesquisa…'; pesquisaUser=usuario.id;
+    pesquisaTempoIniciar();pesquisaProgresso(0,Number($('pQuantidade').value),'running');
     clearTimeout(pesquisaTimer);
     try {var r=await pesquisaRequest('/jobs','POST',{segmento:$('pSegmento').value.trim(),regiao:$('pRegiao').value.trim(),quantidade:Number($('pQuantidade').value)});
       pesquisaJob=r.id; $('pParar').hidden=false; acompanharPesquisa();
-    }catch(err){$('pStatus').textContent=err.message;pesquisaIdle();}
+    }catch(err){$('pStatus').textContent=err.message;pesquisaProgressoErro();pesquisaIdle();}
   };
   $('pParar').onclick=async function(){try{await pesquisaRequest('/jobs/'+pesquisaJob,'DELETE');await acompanharPesquisa();}catch(e){$('pStatus').textContent=e.message;}};
   $('tabPesquisa').addEventListener('click',function(){if(pesquisaJob){clearTimeout(pesquisaTimer);acompanharPesquisa();}});
@@ -1690,6 +1762,7 @@ body > footer{width:100%;flex-shrink:0;margin-top:0;margin-bottom:0;padding-top:
 
   function telaLogin(){
     usuario = null;
+    mjReset();
     document.body.classList.add("deslogado");
     $("mj-login").classList.add("on");
     $("lSenha").value = "";
@@ -1698,6 +1771,7 @@ body > footer{width:100%;flex-shrink:0;margin-top:0;margin-bottom:0;padding-top:
 
   function entrar(u){
     usuario = { id:u.id, email:u.email };
+    mjInit();
     KEY = "p30k_painel_" + u.id;
     $("cEmail").textContent = u.email || "";
     $("mj-login").classList.remove("on");
@@ -1765,6 +1839,80 @@ body > footer{width:100%;flex-shrink:0;margin-top:0;margin-bottom:0;padding-top:
   window.addEventListener("beforeunload", function(){
     if (usuario && diferencas().sobe.length) sincronizar();
   });
+
+  // Biblioteca real: usa o mesmo cliente e login Supabase do painel.
+  var mjNichos=[], mjScripts=[], mjSelected='', mjIsAdmin=false, mjReady=false;
+  var mjGeneration=0, mjEditing=null, mjSaving=false, mjState='signedout';
+  function mjMsg(text, bad){var el=$('mjStatus');el.textContent=text;el.style.color=bad?'#ad3540':'';}
+  function mjReset(){mjGeneration++;mjNichos=[];mjScripts=[];mjSelected='';mjIsAdmin=false;mjReady=false;mjState=usuario?'loading':'signedout';mjDraw();}
+  function mjActive(){return mjNichos.filter(function(n){return !n.excluido;});}
+  function mjManage(s){return !!usuario && (mjIsAdmin || s.criado_por===usuario.id);}
+  function mjEsc(s){return esc(s).replace(/'/g,'&#39;');}
+  async function mjInit(){
+    mjReset(); if(!usuario)return;
+    var generation=mjGeneration;
+    mjMsg('Verificando sua conta e carregando a biblioteca…');
+    try{
+      var verified=await sb.auth.getUser();if(verified.error)throw verified.error;
+      if(!verified.data.user || verified.data.user.id!==usuario.id)throw new Error('Entre novamente no painel.');
+      var role=await sb.rpc('mj_biblioteca_admin');if(role.error)throw role.error;
+      if(generation!==mjGeneration)return;
+      mjIsAdmin=role.data===true;
+      await mjLoad(generation);
+    }catch(e){if(generation===mjGeneration){mjReady=false;mjState='error';mjDraw();mjMsg(mjError(e),true);}}
+  }
+  function mjError(e){var code=String(e.code||''),message=String(e.message||'');if(/PGRST202|PGRST205|42P01|42883/.test(code)||/Could not find.*(mj_|function)/i.test(message))return 'A biblioteca ainda não foi instalada no Supabase. Execute o arquivo supabase-scripts-nichos.sql e clique em Atualizar biblioteca.';if(code==='23505')return 'Este nicho já existe. Um administrador pode conferir também os nichos excluídos.';if(code==='42501')return 'Seu login não tem permissão para esta alteração.';return 'Não foi possível completar a operação: '+(message||'confira sua conexão e entre novamente.');}
+  async function mjLoad(generation){
+    var result=await Promise.all([sb.from('mj_nichos').select('*').order('nome'),sb.from('mj_scripts').select('*').eq('excluido',false).order('criado_em')]);
+    if(result[0].error||result[1].error)throw result[0].error||result[1].error;
+    if(generation!==mjGeneration||!usuario)return;
+    mjNichos=result[0].data||[];mjScripts=result[1].data||[];mjReady=true;mjState='ready';mjDraw();mjMsg('Biblioteca sincronizada com o Supabase.');
+  }
+  function mjCard(s,editable){return '<article class="mj-script"><div class="mj-row mj-between"><h3>'+mjEsc(s.titulo)+'</h3><span class="mj-tag">'+mjEsc(s.canal)+' · '+mjEsc(s.etapa)+'</span></div><div class="mj-script-text">'+mjEsc(s.texto)+'</div><div class="mj-row mj-between"><button type="button" class="btn solid" data-mj-copy="'+s.id+'">Copiar script</button>'+(editable&&mjManage(s)?'<div class="mj-row"><button type="button" class="btn" data-mj-edit="'+s.id+'">Editar</button><button type="button" class="btn mj-danger" data-mj-delete="'+s.id+'">Excluir</button></div>':'')+'</div></article>';}
+  function mjDraw(){
+    var active=mjActive();if(!active.some(function(n){return n.id===mjSelected;}))mjSelected=active[0]?active[0].id:'';
+    // Este bloco nunca aparece antes da verificação no banco nem para usuários comuns.
+    $('mjArquivados').hidden=!mjIsAdmin||!mjReady;
+    $('mjNichoActions').hidden=!mjIsAdmin||!mjReady||!mjSelected;
+    $('mjNovoNicho').disabled=!mjReady||mjSaving;$('mjNovoScript').disabled=!mjReady||!mjSelected||mjSaving;
+    var filter=$('mjFiltro').value.toLocaleLowerCase('pt-BR');
+    $('mjNichoList').innerHTML=active.filter(function(n){return n.nome.toLocaleLowerCase('pt-BR').includes(filter);}).map(function(n){var count=mjScripts.filter(function(s){return s.nicho_id===n.id;}).length;return '<button class="btn mj-nicho '+(mjSelected===n.id?'solid':'')+'" type="button" data-mj-nicho="'+n.id+'">'+mjEsc(n.nome)+'<span>'+count+'</span></button>';}).join('')||'<p class="shint">'+(mjReady?(filter?'Nenhum nicho corresponde à busca.':'Nenhum nicho cadastrado. Clique em + Novo nicho.'):(mjState==='error'?'Biblioteca indisponível. Confira a mensagem abaixo.':'Aguardando conexão com a biblioteca.'))+'</p>';
+    var niche=active.find(function(n){return n.id===mjSelected;});$('mjNichoTitle').textContent=niche?niche.nome:'Sua biblioteca';
+    var scripts=mjScripts.filter(function(s){return s.nicho_id===mjSelected;});$('mjScriptCount').textContent=mjReady?scripts.length+' script(s) disponível(is)':'';$('mjScriptList').innerHTML=scripts.map(function(s){return mjCard(s,true);}).join('')||'<div class="mj-empty">'+(mjReady?(mjSelected?'Ainda não há scripts neste nicho. Cadastre seu primeiro script.':'Cadastre um nicho para organizar seus scripts.'):(mjState==='error'?'Sua conta está conectada. A biblioteca não pôde ser carregada; confira o aviso abaixo.':(mjState==='loading'?'Carregando a biblioteca da sua conta…':'Entre na conta para acessar a biblioteca.')))+'</div>';
+    $('mjArchiveList').innerHTML=mjIsAdmin?mjNichos.filter(function(n){return n.excluido;}).map(function(n){return '<div class="mj-script"><b>'+mjEsc(n.nome)+'</b><button class="btn" type="button" data-mj-restore="'+n.id+'">Restaurar nicho</button></div>';}).join('')||'<p class="shint">Nenhum nicho excluído.</p>':'';
+  }
+  function mjTab(name){$('mjBiblioteca').hidden=name!=='scripts';$('pesquisaLeads').hidden=name!=='search';$('areaContatos').hidden=name!=='leads';[['tabContatos','leads'],['tabPesquisa','search'],['tabScripts','scripts']].forEach(function(pair){var on=pair[1]===name;$(pair[0]).classList.toggle('solid',on);$(pair[0]).setAttribute('aria-selected',String(on));});}
+  function mjOpen(type,id){
+    if(!mjReady||!usuario)return;
+    mjEditing={type:type,id:id,user:usuario.id};var fields='';
+    if(type==='nicho'){if(id&&!mjIsAdmin)return;var n=mjNichos.find(function(n){return n.id===id;});$('mjEditTitle').textContent=id?'Editar nicho':'Novo nicho';fields='<label class="flbl" for="mjNome">Nome do nicho</label><input id="mjNome" required maxlength="120" value="'+mjEsc(n?n.nome:'')+'" placeholder="Ex.: Clínica veterinária">';}
+    else {var s=mjScripts.find(function(s){return s.id===id;});if(s&&!mjManage(s))return;$('mjEditTitle').textContent=id?'Editar script':'Novo script';fields='<label class="flbl" for="mjScriptNicho">Nicho</label><select id="mjScriptNicho" required>'+mjActive().map(function(n){return '<option value="'+n.id+'" '+(n.id===(s?s.nicho_id:mjSelected)?'selected':'')+'>'+mjEsc(n.nome)+'</option>';}).join('')+'</select><label class="flbl" for="mjTitulo">Título</label><input id="mjTitulo" required maxlength="120" value="'+mjEsc(s?s.titulo:'')+'"><div class="grid2"><div><label class="flbl" for="mjCanal">Canal</label><select id="mjCanal">'+CANAIS.map(function(c){return '<option '+(s&&s.canal===c?'selected':'')+'>'+mjEsc(c)+'</option>';}).join('')+'</select></div><div><label class="flbl" for="mjEtapa">Etapa</label><select id="mjEtapa">'+COLS.map(function(c){return '<option '+(s&&s.etapa===c.lab?'selected':'')+'>'+mjEsc(c.lab)+'</option>';}).join('')+'</select></div></div><label class="flbl" for="mjTexto">Texto da mensagem</label><textarea id="mjTexto" required maxlength="15000">'+mjEsc(s?s.texto:'')+'</textarea>';}
+    fields=fields.replace(/<input id=/g,'<input type="text" id=');
+    $('mjEditFields').innerHTML=fields;$('mjEditError').textContent='';$('mjEditor').showModal();
+  }
+  async function mjMutation(query,success,generation){var r=await query;if(r.error)throw r.error;if(!r.data||!r.data.length)throw new Error('O registro não foi alterado. Atualize a biblioteca e confira suas permissões.');await mjLoad(generation);mjMsg(success);}
+  $('mjEditForm').onsubmit=async function(e){
+    e.preventDefault();if(mjSaving||!mjEditing||!usuario||mjEditing.user!==usuario.id)return;
+    var generation=mjGeneration,type=mjEditing.type,id=mjEditing.id,query;
+    if(type==='nicho'){var name=$('mjNome').value.trim();if(!name)return;$('mjEditError').textContent='';query=id?sb.from('mj_nichos').update({nome:name}).eq('id',id):sb.from('mj_nichos').insert({nome:name,criado_por:usuario.id});}
+    else{var value={nicho_id:$('mjScriptNicho').value,titulo:$('mjTitulo').value.trim(),texto:$('mjTexto').value.trim(),canal:$('mjCanal').value,etapa:$('mjEtapa').value};if(!value.titulo||!value.texto)return;query=id?sb.from('mj_scripts').update(value).eq('id',id):sb.from('mj_scripts').insert(Object.assign({criado_por:usuario.id},value));mjSelected=value.nicho_id;}
+    mjSaving=true;$('mjEditSave').disabled=true;$('mjEditSave').textContent='Salvando…';
+    try{var r=await query.select();if(r.error)throw r.error;if(!r.data||!r.data.length)throw new Error('Nenhum registro alterado.');if(generation!==mjGeneration)return;if(type==='nicho')mjSelected=r.data[0].id;await mjLoad(generation);$('mjEditor').close();mjMsg('Salvo no Supabase.');}
+    catch(err){if(generation===mjGeneration)$('mjEditError').textContent=mjError(err);}
+    finally{mjSaving=false;$('mjEditSave').disabled=false;$('mjEditSave').textContent='Salvar';}
+  };
+  async function mjArchive(id,restore){if(!mjIsAdmin||mjSaving)return;var n=mjNichos.find(function(n){return n.id===id;});if(!n)return;if(!restore&&!confirm('Excluir o nicho “'+n.nome+'”? Ele e seus scripts sairão das seleções. Os leads existentes serão preservados e o nicho poderá ser restaurado.'))return;var generation=mjGeneration;mjSaving=true;try{await mjMutation(sb.from('mj_nichos').update({excluido:!restore}).eq('id',id).select(),restore?'Nicho restaurado.':'Nicho excluído. Você pode restaurá-lo.',generation);}catch(e){if(generation===mjGeneration)mjMsg(mjError(e),true);}finally{mjSaving=false;mjDraw();}}
+  async function mjDeleteScript(id){var s=mjScripts.find(function(s){return s.id===id;});if(!s||!mjManage(s)||mjSaving)return;if(!confirm('Excluir o script “'+s.titulo+'”?'))return;var generation=mjGeneration;mjSaving=true;try{var r=await sb.from('mj_scripts').update({excluido:true}).eq('id',id);if(r.error)throw r.error;await mjLoad(generation);mjMsg('Script excluído.');}catch(e){if(generation===mjGeneration)mjMsg(mjError(e),true);}finally{mjSaving=false;mjDraw();}}
+  async function mjCopy(id){var s=mjScripts.find(function(s){return s.id===id;});if(!s)return;try{await navigator.clipboard.writeText(s.texto);mjToast('Script copiado!');}catch(e){var t=document.createElement('textarea');t.value=s.texto;t.style.cssText='position:fixed;top:0;opacity:0';document.body.appendChild(t);t.select();var ok=false;try{ok=document.execCommand('copy');}catch(ignore){}t.remove();if(ok)mjToast('Script copiado!');else{$('mjCopyText').value=s.texto;$('mjCopyDialog').showModal();$('mjCopyText').select();}}}
+  var mjToastTimer;
+  function mjToast(t){$('mjToast').textContent=t;$('mjToast').hidden=false;clearTimeout(mjToastTimer);mjToastTimer=setTimeout(function(){$('mjToast').hidden=true;},3000);}
+  document.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var d=b.dataset;if(d.mjNicho){mjSelected=d.mjNicho;mjDraw();}if(d.mjCopy)mjCopy(d.mjCopy);if(d.mjEdit)mjOpen('script',d.mjEdit);if(d.mjDelete)mjDeleteScript(d.mjDelete);if(d.mjRestore)mjArchive(d.mjRestore,true);});
+  $('mjNovoNicho').onclick=function(){mjOpen('nicho');};$('mjNovoScript').onclick=function(){mjOpen('script');};$('mjEditNicho').onclick=function(){mjOpen('nicho',mjSelected);};$('mjDeleteNicho').onclick=function(){mjArchive(mjSelected,false);};
+  $('mjEditClose').onclick=$('mjEditCancel').onclick=function(){if(!mjSaving)$('mjEditor').close();};$('mjCopyClose').onclick=function(){$('mjCopyDialog').close();};
+  $('mjFiltro').oninput=mjDraw;$('mjRefresh').onclick=mjInit;
+  $('tabScripts').onclick=function(){mjTab('scripts');};
+  sb.auth.onAuthStateChange(function(event){if(event==='SIGNED_OUT'){if($('mjEditor').open)$('mjEditor').close();if($('mjCopyDialog').open)$('mjCopyDialog').close();mjReset();}});
+  mjDraw();
 
   // sessão já aberta? entra direto. senão, mostra a tela de login.
   sb.auth.getSession().then(function(r){
